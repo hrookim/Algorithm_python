@@ -5,7 +5,7 @@ sys.stdin = open("input.txt")
 def dfs_delta(i, j):
     to_visit = [(i, j)]
     while to_visit:
-        ci, cj = to_visit.pop()
+        ci, cj = to_visit.pop()  # current i j 
         if not visited[ci][cj]:
             visited[ci][cj] = True
             color = matrix[ci][cj]
