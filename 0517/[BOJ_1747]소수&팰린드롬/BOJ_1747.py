@@ -22,7 +22,7 @@ if N == 1:
     print(2)
 else:
     for n in range(N, 1003002):
-        if is_prime(n) and is_palindrome(n):
+        if is_palindrome(n) and is_prime(n):  # 리팩토링!
             print(n)
             break
       
