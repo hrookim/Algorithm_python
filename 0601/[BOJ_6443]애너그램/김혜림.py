@@ -1,5 +1,5 @@
 # 백트랙킹 과정이 포함된 풀이! 
-
+# 딕셔너리 사용하기
 import sys
 sys.stdin = open('input1.txt')
 input = sys.stdin.readline

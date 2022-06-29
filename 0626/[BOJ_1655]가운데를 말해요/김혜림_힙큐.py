@@ -9,10 +9,10 @@ answer = []
 
 for _ in range(N):  
     n = int(input())
-    
+    # 홀수
     if len(left) == len(right):
         heapq.heappush(left, (-n, n))
-    else:
+    else:   # 짝수
         heapq.heappush(right, (n, n))
     if right and left[0][1] > right[0][1]:
         min_n = heapq.heappop(right)[1]
