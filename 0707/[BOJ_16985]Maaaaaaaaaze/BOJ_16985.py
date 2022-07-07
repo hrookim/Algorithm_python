@@ -5,7 +5,8 @@
 import sys
 from collections import deque
 from itertools import product, permutations
-sys.stdin = open('input7.txt') 
+sys.stdin = open('input8.txt') 
+input = sys.stdin.readline
 
 f1 = [list(map(int, input().split())) for _ in range(5)]
 f2 = [list(map(int, input().split())) for _ in range(5)]
@@ -32,6 +33,8 @@ def bfs():
         for dz, di, dj in [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]:
             nz, ni, nj = cz+dz, ci+di, cj+dj
             if 0 <= nz < 5 and 0 <= ni < 5 and 0 <= nj < 5 and cube[nz][ni][nj] and not visited[nz][ni][nj]:
+                if (nz, ni, nj) == (4, 4, 4):
+                    return c_move
                 to_visit.append((nz, ni, nj))
                 visited[nz][ni][nj] = c_move+1
         
@@ -74,7 +77,7 @@ for seq in product(range(4), range(4), range(4), range(4), range(4)):
                 cube.append(tf5)
     
         # (0, 0, 0)이 1이여야 bfs 가능
-        if cube[0][0][0]:
+        if cube[0][0][0] and cube[4][4][4]:
             tmp = bfs()
             if tmp and tmp < answer:
                 answer = tmp
