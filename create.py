@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import os
+from datetime import date
+import os, shutil
 base = 'https://www.acmicpc.net/problem/'
 
 while True:
@@ -27,7 +28,12 @@ while True:
         for i in range(len(sample_i)):
             for text_i in sample_i[i].text.strip().split('\n'):
                 os.system(f"echo {text_i} >> \"[BOJ_{num}]{title}/input{i+1}.txt\"")
-
+        
+        today = str(date.today())[5:7] + str(date.today())[8:10]
+        if not (os.path.isdir(today)):
+            os.mkdir(os.path.join(today))
+        shutil.move(f"[BOJ_{num}]{title}", f"{today}")
+        
     else:
         print(response.status_code)
         break
