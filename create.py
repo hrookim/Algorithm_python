@@ -29,10 +29,12 @@ while True:
             for text_i in sample_i[i].text.strip().split('\n'):
                 os.system(f"echo {text_i} >> \"[BOJ_{num}]{title}/input{i+1}.txt\"")
         
-        today = str(date.today())[5:7] + str(date.today())[8:10]
-        if not (os.path.isdir(today)):
-            os.mkdir(os.path.join(today))
-        shutil.move(f"[BOJ_{num}]{title}", f"{today}")
+        # today forma: 2023-03-02
+        today = str(date.today())
+        today_str = today[:4] + "_" + today[5:7] + today[8:10]
+        if not (os.path.isdir(today_str)):
+            os.mkdir(os.path.join(today_str))
+        shutil.move(f"[BOJ_{num}]{title}", f"{today_str}")
         
     else:
         print(response.status_code)
