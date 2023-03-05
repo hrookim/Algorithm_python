@@ -16,5 +16,4 @@
   * `[settings]`: git 설정 관련 수정(gitignore or README 수정 등)
 * message 규칙
   * 모든 message는 영어로 작성한다
-  * 문제 코드를 커밋하는 경우, `yymmdd`형태의 날짜를 추가한다
   * 문제는 출처와 문제번호를 `BOJ_12345` 형태로 입력한다
