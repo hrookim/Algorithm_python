@@ -12,10 +12,11 @@ def solution(picks, minerals):
     answer = float("inf")
     # 0. recursive dfs로 곡괭이 순열 만들기
     def perm(curr=0):
+        """
+        :param curr: 재귀 깊이 
+        :return: None
+        """
         nonlocal answer
-        """
-        curr: 재귀 깊이
-        """
         # 0-1. 다 뽑은 경우 최소 피로도 찾기
         if r == curr:
             tmp = 0
