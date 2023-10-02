@@ -88,10 +88,7 @@ def judge_try(time):
         total_url[idx]["start"] = time
         waiting_url.pop(url)
 
-        if ing_domain.get(domain):
-            ing_domain[domain] += 1
-        else:
-            ing_domain[domain] = 1
+        ing_domain[domain] = 1
 
         i = min_judge_id
         while judges.get(i):
@@ -132,10 +129,7 @@ def judge_end(time, number_judge):
         "gap": time - start
     }
 
-    if ing_domain[domain] > 1:
-        ing_domain[domain] -= 1
-    elif ing_domain[domain] == 1:
-        ing_domain.pop(domain)
+    ing_domain.pop(domain)
 
     # 최소 빈 채점기 갱신
     if number_judge < min_judge_id:
