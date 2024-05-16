@@ -12,7 +12,7 @@ while True:
     url = base + num
     print(url)
 
-    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"})
 
     if response.status_code == 200:
         html = response.text
@@ -29,7 +29,7 @@ while True:
             for text_i in sample_i[i].text.strip().split('\n'):
                 os.system(f"echo {text_i} >> \"[BOJ_{num}]{title}/input{i+1}.txt\"")
         
-        # today forma: 2023-03-02
+        # today format: 2023-03-02
         today = str(date.today())
         today_str = today[:4] + "_" + today[5:7] + today[8:10]
         if not (os.path.isdir(today_str)):
